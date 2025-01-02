@@ -36,19 +36,19 @@ const CONFIG = {
           title: 'Companion Cube',
           // description: 'Lorem ipsum',
           imageUrl:
-            '/src/assets/images/projects/CompanionCube_Original.webp',
+            '/projects/CompanionCube_Original.webp',
         },
         {
           title: 'Jar',
           // description: 'Lorem ipsum',
           imageUrl:
-            '/src/assets/images/projects/Jar_Open.webp',
+            '/projects/Jar_Open.webp',
         },
         {
           title: 'Trapped Ball',
           // description: 'Lorem ipsum',
           imageUrl:
-            '/src/assets/images/projects/TrappedBall.webp',
+            '/projects/TrappedBall.webp',
         },
       ],
     },
