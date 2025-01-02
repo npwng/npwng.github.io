@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from "react";
-import { SanitizedThemeConfig } from '../../../interfaces/sanitized-config';
+import React, { useState } from "react";
 interface ImageSliderProps {
   slides: string[];
 }
@@ -70,7 +69,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
       </div>
 
       <div style={dotsContainerStyles}>
-        {slides.map((slide, slideIndex) => (
+        {slides.map((_, slideIndex) => (
           <div
             style={dotStyle}
             className={`${dotStyle.cursor} ${dotStyle.fontSize} ${slideIndex === currentIndex ? 'text-primary' : 'text-base-content'} text-opacity-60`}
