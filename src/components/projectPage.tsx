@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, Fragment } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { formatDistance } from 'date-fns';
 import {
@@ -31,7 +31,7 @@ import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
 import ProjectCard from './project-page'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 /**
  * Renders the GitProfile component.
  *
@@ -47,17 +47,6 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const [showComponent, setShowComponent] = useState(true);
-
-  const handleProjectSelect = (projectName: string | null) => {
-    setShowComponent(false);
-    setTimeout(() => {
-      setSelectedProject(projectName);
-      setShowComponent(true);
-    }, 500); // Match this with the exit transition duration
-  };
-
 
   const getGithubProjects = useCallback(
     async (publicRepoCount: number): Promise<GithubProject[]> => {
@@ -191,48 +180,6 @@ const GitProfile = ({ config }: { config: Config }) => {
     }
   };
 
-  const homePage = () => {
-    return (
-      <Fragment>
-        {sanitizedConfig.projects.github.display && (
-          <GithubProjectCard
-            header={sanitizedConfig.projects.github.header}
-            limit={sanitizedConfig.projects.github.automatic.limit}
-            githubProjects={githubProjects}
-            loading={loading}
-            username={sanitizedConfig.github.username}
-            googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-          />
-        )}
-        {sanitizedConfig.publications.length !== 0 && (
-          <PublicationCard
-            loading={loading}
-            publications={sanitizedConfig.publications}
-          />
-        )}
-        {sanitizedConfig.projects.external.projects.length !==
-          0 && (
-          <ExternalProjectCard
-            loading={loading}
-            header={sanitizedConfig.projects.external.header}
-            externalProjects={
-              sanitizedConfig.projects.external.projects
-            }
-            onProjectSelect={handleProjectSelect}
-            googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-          />
-        )}
-        {sanitizedConfig.blog.display && (
-          <BlogCard
-            loading={loading}
-            googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-            blog={sanitizedConfig.blog}
-          />
-        )}
-      </Fragment>
-    );
-  }
-
   return (
     <HelmetProvider>
       <div className="fade-in h-screen">
@@ -300,24 +247,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                 </div>
                 <div className="lg:col-span-2 col-span-1">
                   <div className="grid grid-cols-1 gap-6">
-                  <TransitionGroup>
-                  {showComponent && (
-                    <CSSTransition
-                      key={selectedProject ? 'project' : 'home'}
-                      timeout={130}
-                      classNames="fade"
-                    >
-                    {!selectedProject ? (
-                      homePage()
-                    ) : (
-                      <ProjectCard
-                      projectName={selectedProject}
-                      onProjectSelect={handleProjectSelect}
-                      />
-                    )}
-                    </CSSTransition>
-                  )}
-                    </TransitionGroup>
+                    <ProjectCard/>
                   </div>
                 </div>
               </div>
@@ -339,3 +269,4 @@ const GitProfile = ({ config }: { config: Config }) => {
 };
 
 export default GitProfile;
+// import projectsContents from "../../_projects";

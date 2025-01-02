@@ -8,11 +8,13 @@ const ExternalProjectCard = ({
   header,
   loading,
   googleAnalyticId,
+  onProjectSelect, // Add this line
 }: {
   externalProjects: SanitizedExternalProject[];
   header: string;
   loading: boolean;
   googleAnalyticId?: string;
+  onProjectSelect: (projectName: string) => void;
 }) => {
   const renderSkeleton = () => {
     const array = [];
@@ -71,7 +73,6 @@ const ExternalProjectCard = ({
       <a
         className="card shadow-lg compact bg-base-100 cursor-pointer"
         key={index}
-        href={item.link}
         onClick={(e) => {
           e.preventDefault();
 
@@ -85,7 +86,7 @@ const ExternalProjectCard = ({
             console.error(error);
           }
 
-          window?.open(item.link, '_blank');
+          onProjectSelect(item.title); // Pass the project name
         }}
       >
         <div className="p-8 h-full w-full">
@@ -93,12 +94,12 @@ const ExternalProjectCard = ({
             <div className="w-full">
               <div className="px-4">
                 <div className="text-center w-full">
-                  <h2 className="font-medium text-center opacity-60 mb-2">
+                  <h2 className="font-bold text-center opacity-60 mb-2">
                     {item.title}
                   </h2>
                   {item.imageUrl && (
                     <div className="avatar opacity-90">
-                      <div className="w-24 h-24 mask mask-squircle">
+                      <div className="w-full h-full mask mask-squircle transform transition-transform duration-800 hover:scale-105">
                         <LazyImage
                           src={item.imageUrl}
                           alt={'thumbnail'}
@@ -141,8 +142,8 @@ const ExternalProjectCard = ({
                     )}
                   </h5>
                 </div>
-                <div className="col-span-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="col-span-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {loading ? renderSkeleton() : renderExternalProjects()}
                   </div>
                 </div>
