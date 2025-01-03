@@ -59,7 +59,7 @@ const CONFIG = {
     imageURL: '',
   },
   social: {
-    linkedin: 'changeme',
+    linkedin: '',
     twitter: '',
     mastodon: '',
     researchGate: '',
@@ -76,9 +76,9 @@ const CONFIG = {
     stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
     telegram: '',
-    website: 'changeme',
+    website: 'https://npwng.github.io',
     phone: '',
-    email: 'changeme',
+    email: 'nicholas.pw@tuta.com',
   },
   resume: {
     // fileUrl:
@@ -90,7 +90,7 @@ const CONFIG = {
     'Parametric Modeling',
     'CNC Milling',
     'CNC Turning',
-    'Coding',
+    'Python',
     'LaTeX',
   ],
   experiences: [
