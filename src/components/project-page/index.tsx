@@ -1,5 +1,4 @@
 import projectsContents from '../../../_projects'
-
 import ImageSlider from './image-slider';
 
 // Define the type for a slide
@@ -37,8 +36,10 @@ const ProjectCard = ({
                     </div>
                 </div>
                 <div className='card shadow-lg compact bg-base-100 w-full'> 
-                    <div className='flex pl-6 pr-6 py-6'>
+                    {/* <div className='flex pl-6 pr-6 py-6'>
                         {matchingProject?.body}
+                    </div> */}
+                    <div className='pl-6 pr-6 py-6' dangerouslySetInnerHTML={{ __html: matchingProject?.body || "" }}>
                     </div>
                 </div>
             </div>

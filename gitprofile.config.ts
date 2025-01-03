@@ -120,9 +120,21 @@ const CONFIG = {
   certifications: [
     {
       name: 'Certified SolidWorks Professional (CSWP)',
-      body: 'Lorem ipsum dolor sit amet',
-      year: 'March 2022',
-      link: 'https://example.com',
+      // body: '',
+      year: 'March 2024',
+      link: 'https://www.solidworks.com/certifications/solidworks-cad-design-professional',
+    },
+    {
+      name: 'Certified SolidWorks Associate (CSWA)',
+      // body: '',
+      year: 'November 2023',
+      link: 'https://www.solidworks.com/certifications/mechanical-design-cswa-mechanical-design',
+    },
+    {
+      name: 'WHMIS 2024',
+      // body: '',
+      year: 'May 2024',
+      link: 'https://www.canada.ca/en/health-canada/services/environmental-workplace-health/occupational-health-safety/workplace-hazardous-materials-information-system.html',
     },
   ],
   publications: [
