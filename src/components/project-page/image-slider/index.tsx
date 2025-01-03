@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 interface ImageSliderProps {
   slides: string[];
 }
@@ -25,6 +26,18 @@ const dotsContainerStyles: React.CSSProperties = {
 const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const preloadImages = (imageArray: string[]) => {
+    imageArray.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  };
+
+  // Use useEffect to call preloadImages when component mounts
+  useEffect(() => {
+    preloadImages(slides);
+  }, [slides]);
+
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
@@ -44,7 +57,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
   return (
     <div className="w-full">
       <div style={{opacity:0}}>
-          ●'
+          ●
       </div>
       <div className="flex w-full" style={flexStyle}>
         <div className="py-2 px-2 cursor-pointer transform transition-transform duration-800 hover:scale-105" onClick={goToPrevious}>
