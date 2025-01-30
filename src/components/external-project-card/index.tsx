@@ -89,14 +89,13 @@ const ExternalProjectCard = ({
           onProjectSelect(item.title); // Pass the project name
         }}
       >
-        <div className="p-8 h-full w-full">
+        <div className="p-[7.5%] h-full w-full">
           <div className="flex items-center flex-col">
             <div className="w-full">
-              <div className="px-4">
                 <div className="text-center w-full">
-                  <h2 className="font-bold text-center opacity-60 mb-2">
-                    {item.title}
-                  </h2>
+                  {/* <h2 className="font-bold text-center opacity-60 mb-2"> */}
+                    {/* {item.title} */}
+                  {/* </h2> */}
                   {item.imageUrl && (
                     <div className="avatar opacity-90">
                       <div className="w-full h-full mask mask-squircle transform transition-transform duration-800 hover:scale-105">
@@ -112,14 +111,13 @@ const ExternalProjectCard = ({
                       </div>
                     </div>
                   )}
-                  <p className="mt-2 text-base-content text-opacity-60 text-sm text-justify">
+                  {/* <p className="mt-2 text-base-content text-opacity-60 text-sm text-justify">
                     {item.description}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </a>
     ));
   };
@@ -143,7 +141,7 @@ const ExternalProjectCard = ({
                   </h5>
                 </div>
                 <div className="col-span-3">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                     {loading ? renderSkeleton() : renderExternalProjects()}
                   </div>
                 </div>

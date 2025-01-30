@@ -66,7 +66,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
           </svg>
         </div>
         <div style={{ ...slideStyles, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <img src={slides[currentIndex]} alt={`Slide ${currentIndex}`} style={{ borderRadius: '10px', maxWidth: '100%', maxHeight: '25rem' }} />
+          <img src={slides[currentIndex]} alt={`Slide ${currentIndex}`} style={{ borderRadius: '10px', maxWidth: '100%', maxHeight: '35rem' }} />
         </div>
         <div className="py-2 px-2 cursor-pointer transform transition-transform duration-800 hover:scale-105" onClick={goToNext}>
           <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="currentColor">

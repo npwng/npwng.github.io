@@ -31,6 +31,7 @@ import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
 import ProjectCard from './project-page'
+import AboutCard from './whoami-card'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 /**
  * Renders the GitProfile component.
@@ -300,6 +301,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                 </div>
                 <div className="lg:col-span-2 col-span-1">
                   <div className="grid grid-cols-1 gap-6">
+                    <AboutCard />
                   <TransitionGroup>
                   {showComponent && (
                     <CSSTransition

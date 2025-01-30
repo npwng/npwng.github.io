@@ -39,7 +39,7 @@ const ProjectCard = ({
                     {/* <div className='flex pl-6 pr-6 py-6'>
                         {matchingProject?.body}
                     </div> */}
-                    <div className='pl-6 pr-6 py-6' dangerouslySetInnerHTML={{ __html: matchingProject?.body || "" }}>
+                    <div className='px-6 py-6 space-y-4 grid place-items-center' dangerouslySetInnerHTML={{ __html: matchingProject?.body || "" }}>
                     </div>
                 </div>
             </div>

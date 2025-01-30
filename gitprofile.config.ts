@@ -35,20 +35,33 @@ const CONFIG = {
         {
           title: 'Companion Cube',
           // description: 'Lorem ipsum',
-          imageUrl:
-            '/projects/CompanionCube_Original.webp',
+          imageUrl: '/projects/CompanionCube_Original.webp',
         },
         {
           title: 'Jar',
           // description: 'Lorem ipsum',
-          imageUrl:
-            '/projects/Jar_Open.webp',
+          imageUrl: '/projects/Jar_Open.webp',
         },
         {
           title: 'Trapped Ball',
           // description: 'Lorem ipsum',
-          imageUrl:
-            '/projects/TrappedBall.webp',
+          imageUrl: '/projects/TrappedBall.webp',
+        },
+        {
+          title: 'R8 Arbor',
+          imageUrl: '/projects/Arbor_Full.webp',
+        },
+        // {
+        //   title: 'Collet Wrench',
+        //   imageUrl: '',
+        // },
+        // {
+        //   title: 'T-Slot Adapter',
+        //   imageUrl: '',
+        // },
+        {
+          title: 'Low Profile Vise Jaws',
+          imageUrl: '/projects/LPVJ_Full.webp',
         },
       ],
     },
