@@ -1,5 +1,6 @@
 import projectsContents from '../../../_projects'
 import ImageSlider from './image-slider';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Define the type for a slide
 const ProjectCard = ({
@@ -11,6 +12,12 @@ const ProjectCard = ({
 }) => {
     const matchingProject = projectsContents.find(project => project.title === projectName);
     const slides = matchingProject?.pictures ?? [];
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate('/');
+    };
+
     return (
         <div className="card compact bg-base-100 shadow bg-opacity-40">
                 <div className="card-body grid place-items-center py-8">
@@ -25,6 +32,7 @@ const ProjectCard = ({
                         className="transform transition-transform duration-800 hover:scale-105" 
                         onClick={() => {
                             onProjectSelect(null); // Pass the project name
+                            handleBack
                         }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"> <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>

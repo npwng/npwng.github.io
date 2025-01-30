@@ -33,6 +33,7 @@ import PublicationCard from './publication-card';
 import ProjectCard from './project-page'
 import AboutCard from './whoami-card'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 /**
  * Renders the GitProfile component.
  *
@@ -192,7 +193,11 @@ const GitProfile = ({ config }: { config: Config }) => {
     }
   };
 
-  const homePage = () => {
+  const HomePage = () => {
+    const navigate = useNavigate();
+    const handleProjectSelect = (projectName:any) => {
+      navigate('/project', { state: { selectedProject: projectName } });
+    };
     return (
       <Fragment>
         {sanitizedConfig.projects.github.display && (
@@ -233,6 +238,44 @@ const GitProfile = ({ config }: { config: Config }) => {
       </Fragment>
     );
   }
+
+  const MainRoutes = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const selectedProject = location.state && location.state.selectedProject;
+  
+    useEffect(() => {
+      const handleBackButton = () => {
+        if (selectedProject) {
+          navigate('/', { state: { fromBackButton: true } });
+        }
+      };
+  
+      window.addEventListener('popstate', handleBackButton);
+  
+      return () => {
+        window.removeEventListener('popstate', handleBackButton);
+      };
+    }, [selectedProject, navigate]);
+  
+    return (
+      <TransitionGroup>
+        <CSSTransition
+          key={location.pathname}
+          timeout={130}
+          classNames="fade"
+        >
+          <Routes location={location}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/project" element={<ProjectCard
+                        projectName={selectedProject}
+                        onProjectSelect={handleProjectSelect}
+                        />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    );
+  };  
 
   return (
     <HelmetProvider>
@@ -302,24 +345,9 @@ const GitProfile = ({ config }: { config: Config }) => {
                 <div className="lg:col-span-2 col-span-1">
                   <div className="grid grid-cols-1 gap-6">
                     <AboutCard />
-                  <TransitionGroup>
-                  {showComponent && (
-                    <CSSTransition
-                      key={selectedProject ? 'project' : 'home'}
-                      timeout={130}
-                      classNames="fade"
-                    >
-                    {!selectedProject ? (
-                      homePage()
-                    ) : (
-                      <ProjectCard
-                      projectName={selectedProject}
-                      onProjectSelect={handleProjectSelect}
-                      />
-                    )}
-                    </CSSTransition>
-                  )}
-                    </TransitionGroup>
+                    <Router>
+                      <MainRoutes />
+                    </Router>
                   </div>
                 </div>
               </div>
@@ -339,5 +367,7 @@ const GitProfile = ({ config }: { config: Config }) => {
     </HelmetProvider>
   );
 };
+
+
 
 export default GitProfile;
