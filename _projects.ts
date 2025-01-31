@@ -7,7 +7,7 @@ const projectsContents = [
             '/projects/CompanionCube_CAMAnimation.webp',
         ],
         body: `
-            <p>The Companion Cube was my first milling project. My aim was to learn and reinforce basic CAM and on-machine tasks. The cube was a a fairly basic model, but still comtained elements such as 3D surfacing and engraving. This project also allowed me to practice proper alignment of multiple setups. The stock was squared to size and proper perpendicularity and parallelity of all sides. A stop was used to speed up subsequent setups. Misalighments between wetups would readily show on the final part.
+            <p>The Companion Cube was my first milling project, designed to help me learn and reinforce fundamental CAM and on-machine basics. The cube itself was a relatively simple model, allowing me to practice basics such as contours, pockets, and chamfers. However, it also included less common elements like 3D surfacing and engraving. This project also allowed me to practice accurate alignment between multiple setups. The stock was carefully squared to size, ensuring perpendicularity and parallelism of all sides. I used a vise stop to streamline the setup process for subsequent operations. Any misalignments between setups would be clearly visible in the final part.</p>
         `,
     },
     {
@@ -57,7 +57,7 @@ const projectsContents = [
 
 	],
 	body: `
-    <p>Our ER16/ER20 collet wrenches were wearing out. This was a fairly simple project. I modeled the wrenches in Solidworks. The design was made parametrically, making it easy to change features such as wrench size, dogbone size, etc. The bulk of the wrench was cut on our waterjet cutter, with the critical contact surfaces being finished on our CNC mill. Faces were cleaned and edges broken with a die grinder.</p>
+    <p>The ER16/ER20 collet wrenches supplied with our mills were deforming after years of use as they were made of aluminum. This was a fairly simple project, using mild steel plate that was already on-hand. The wrenches were parametrically modeled in Solidworks, allowing for quick and easy changes of features such as wrench size, dogbone size, etc. The wrench was cut on our waterjet cutter with added stock on critical features which were finished on our CNC mill. Faces were cleaned and edges broken with a die grinder.</p>
     `
     },
     {
@@ -66,7 +66,7 @@ const projectsContents = [
 
 	],
 	body: `
-    <p>After receiving a new drill press, our clamps did not fit the new table. Based on available T-slot nuts, these have a pocket to accommodate our current clamps. The design was also slightly modified to fit into scrap stock on-hand.</p>
+    <p>After receiving a new drill press, our previous clamps did not fit the new table. The model was based on T-slot nuts that were on-hand. It was modified to include a pocket to accommodate our current clamps along with resizing to fit into avaliable scrap stock.</p>
     `
     },
     {

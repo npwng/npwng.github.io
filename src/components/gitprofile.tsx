@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState, Fragment } from 'react';
 import axios, { AxiosError } from 'axios';
 import { formatDistance } from 'date-fns';
+import { AnimatePresence } from "framer-motion";
 import {
   CustomError,
   GENERIC_ERROR,
@@ -31,8 +32,8 @@ import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
 import ProjectCard from './project-page'
+import AnimatePage from "./animate-page";
 import AboutCard from './whoami-card'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 /**
  * Renders the GitProfile component.
@@ -200,6 +201,7 @@ const GitProfile = ({ config }: { config: Config }) => {
     };
     return (
       <Fragment>
+        <AnimatePage>
         {sanitizedConfig.projects.github.display && (
           <GithubProjectCard
             header={sanitizedConfig.projects.github.header}
@@ -235,6 +237,7 @@ const GitProfile = ({ config }: { config: Config }) => {
             blog={sanitizedConfig.blog}
           />
         )}
+      </AnimatePage>
       </Fragment>
     );
   }
@@ -259,12 +262,7 @@ const GitProfile = ({ config }: { config: Config }) => {
     }, [selectedProject, navigate]);
   
     return (
-      <TransitionGroup>
-        <CSSTransition
-          key={location.pathname}
-          timeout={130}
-          classNames="fade"
-        >
+        <AnimatePresence mode='wait'>
           <Routes location={location}>
             <Route path="/" element={<HomePage />} />
             <Route path="/project" element={<ProjectCard
@@ -272,8 +270,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                         onProjectSelect={handleProjectSelect}
                         />} />
           </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+      </AnimatePresence>
     );
   };  
 
