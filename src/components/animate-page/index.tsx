@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const animations = {
-    initial: { opacity: 0},
-    animate: { opacity: 1},
-    exit: { opacity: 0},
+    initial: { opacity: 0, scale: 0.975},
+    animate: { opacity: 1, scale: 1},
+    exit:    { opacity: 0, scale: 0.975},
 };
 
 const AnimatePage = ({ children }: {children:any}) => {
@@ -13,7 +13,9 @@ return (
     initial="initial"
     animate="animate"
     exit="exit"
-    transition={{ duration: 1.25 }}
+    transition={{ 
+        duration: 0.25,
+    }}
     >
     {children}
     </motion.div>

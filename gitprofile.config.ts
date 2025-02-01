@@ -51,14 +51,14 @@ const CONFIG = {
           title: 'R8 Arbor',
           imageUrl: '/projects/Arbor_Full.webp',
         },
-        // {
-        //   title: 'Collet Wrench',
-        //   imageUrl: '',
-        // },
-        // {
-        //   title: 'T-Slot Adapter',
-        //   imageUrl: '',
-        // },
+        {
+          title: 'Collet Wrench',
+          imageUrl: '/projects/ColletWrench_Both_Cross.webp',
+        },
+        {
+          title: 'T-Slot Adapter',
+          imageUrl: '/projects/DPClamp_Both_ISO.webp',
+        },
         {
           title: 'Low Profile Vise Jaws',
           imageUrl: '/projects/LPVJ_Full.webp',
@@ -117,8 +117,8 @@ const CONFIG = {
     {
       company: 'Canadian Tire',
       position: 'Warehouse Associate',
-      from: 'Changeme',
-      to: 'Changeme',
+      from: 'June 2023',
+      to: 'August 2023',
       companyLink: 'https://corp.canadiantire.ca/English/home/default.aspx',
     },
   ],
@@ -126,7 +126,7 @@ const CONFIG = {
     {
       institution: 'University of Alberta',
       degree: 'Mechanical Engineering, BSc Co-op',
-      from: '2021',
+      from: '2022',
       to: '2027',
     },
   ],
@@ -134,21 +134,26 @@ const CONFIG = {
     {
       name: 'Certified SolidWorks Professional (CSWP)',
       // body: '',
-      year: 'March 2024',
+      year: '2024',
       link: 'https://www.solidworks.com/certifications/solidworks-cad-design-professional',
     },
     {
       name: 'Certified SolidWorks Associate (CSWA)',
       // body: '',
-      year: 'November 2023',
+      year: '2023',
       link: 'https://www.solidworks.com/certifications/mechanical-design-cswa-mechanical-design',
     },
     {
       name: 'WHMIS 2024',
       // body: '',
-      year: 'May 2024',
+      year: '2024',
       link: 'https://www.canada.ca/en/health-canada/services/environmental-workplace-health/occupational-health-safety/workplace-hazardous-materials-information-system.html',
     },
+    {
+      name:'Diplôme d\'Études en Langue Française (DELF) B2',
+      year:'2022',
+      link: 'https://www.alliance-francaise.ca/en/exams/diplomas/delf',
+    }
   ],
   publications: [
     {
