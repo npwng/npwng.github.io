@@ -1,6 +1,6 @@
 import projectsContents from '../../../_projects'
 import ImageSlider from './image-slider';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import AnimatePage from "../animate-page";
 
 
@@ -15,10 +15,6 @@ const ProjectCard = ({
     const matchingProject = projectsContents.find(project => project.title === projectName);
     const slides = matchingProject?.pictures ?? [];
     const navigate = useNavigate();
-
-    const handleBack = () => {
-        navigate('/');
-    };
 
     return (
         <AnimatePage>
