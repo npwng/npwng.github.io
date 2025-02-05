@@ -23,6 +23,16 @@ type Colors = {
   [key: string]: { color: string | null; url: string };
 };
 
+type Project = {
+  title: string;
+  imageUrl?: string;
+};
+
+type External = {
+  header: string;
+  projects: Project[];
+};
+
 export const getSanitizedConfig = (
   config: Config,
 ): SanitizedConfig | Record<string, never> => {

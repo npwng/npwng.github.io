@@ -160,6 +160,14 @@ const GitProfile = ({ config }: { config: Config }) => {
     theme && document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  const preloadImages = (imageArray: string[]) => {
+    imageArray.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  };
+
+
   const handleError = (error: AxiosError | Error): void => {
     console.error('Error:', error);
 
@@ -199,6 +207,16 @@ const GitProfile = ({ config }: { config: Config }) => {
     const handleProjectSelect = (projectName:any) => {
       navigate('/project', { state: { selectedProject: projectName } });
     };
+      const images_to_preload = sanitizedConfig.projects.external.projects.map(project => project.imageUrl);
+
+      useEffect(() => {
+        const imagesToPreload = sanitizedConfig.projects.external.projects
+          .map(project => project.imageUrl)
+          .filter((imageUrl): imageUrl is string => imageUrl !== undefined);
+    
+        preloadImages(imagesToPreload);
+      }, []);
+      
     return (
       <Fragment>
         <AnimatePage>
@@ -212,12 +230,12 @@ const GitProfile = ({ config }: { config: Config }) => {
             googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
           />
         )}
-        {sanitizedConfig.publications.length !== 0 && (
+        {/* {sanitizedConfig.publications.length !== 0 && (
           <PublicationCard
             loading={loading}
             publications={sanitizedConfig.publications}
           />
-        )}
+        )} */}
         {sanitizedConfig.projects.external.projects.length !==
           0 && (
           <ExternalProjectCard
@@ -230,13 +248,13 @@ const GitProfile = ({ config }: { config: Config }) => {
             googleAnalyticId={sanitizedConfig.googleAnalytics.id}
           />
         )}
-        {sanitizedConfig.blog.display && (
+        {/* {sanitizedConfig.blog.display && (
           <BlogCard
             loading={loading}
             googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
             blog={sanitizedConfig.blog}
           />
-        )}
+        )} */}
       </AnimatePage>
       </Fragment>
     );
