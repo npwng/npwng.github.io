@@ -35,6 +35,7 @@ import ProjectCard from './project-page'
 import AnimatePage from "./animate-page";
 import AboutCard from './whoami-card'
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 /**
  * Renders the GitProfile component.
  *
@@ -52,7 +53,12 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [showComponent, setShowComponent] = useState(true);
-
+  // Check if Google Analytics ID is defined before initializing
+  if (sanitizedConfig.googleAnalytics.id) {
+    ReactGA.initialize(sanitizedConfig.googleAnalytics.id);
+  } else {
+    console.error('Google Analytics ID is undefined');
+  }
   const handleProjectSelect = (projectName: string | null) => {
     setShowComponent(false);
     setTimeout(() => {
@@ -207,9 +213,13 @@ const GitProfile = ({ config }: { config: Config }) => {
     const handleProjectSelect = (projectName:any) => {
       navigate('/project', { state: { selectedProject: projectName } });
     };
-      const images_to_preload = sanitizedConfig.projects.external.projects.map(project => project.imageUrl);
+      // const images_to_preload = sanitizedConfig.projects.external.projects.map(project => project.imageUrl);
+      
 
       useEffect(() => {
+        if (sanitizedConfig.googleAnalytics.id) {
+          ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });
+        }
         const imagesToPreload = sanitizedConfig.projects.external.projects
           .map(project => project.imageUrl)
           .filter((imageUrl): imageUrl is string => imageUrl !== undefined);
