@@ -211,15 +211,15 @@ const GitProfile = ({ config }: { config: Config }) => {
   const HomePage = () => {
     const navigate = useNavigate();
     const handleProjectSelect = (projectName:any) => {
-      navigate('/project', { state: { selectedProject: projectName } });
+        if (sanitizedConfig.googleAnalytics.id) {
+          ReactGA.send({ hitType: 'pageview', page: `/project/${projectName}` });
+        }
+        navigate('/project', { state: { selectedProject: projectName } });
     };
       // const images_to_preload = sanitizedConfig.projects.external.projects.map(project => project.imageUrl);
       
 
       useEffect(() => {
-        if (sanitizedConfig.googleAnalytics.id) {
-          ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search });
-        }
         const imagesToPreload = sanitizedConfig.projects.external.projects
           .map(project => project.imageUrl)
           .filter((imageUrl): imageUrl is string => imageUrl !== undefined);
