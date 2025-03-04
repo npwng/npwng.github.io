@@ -1,10 +1,10 @@
 ## npwng.github.io
 This website is a personal portfolio showcasing some of my projects! It is based on [GitProfile](https://github.com/arifszn/gitprofile)!
 
-## Support the Creator
+## Support the Original Creator
 ### 💖 Support
 
-<p>You can show your support by starring the project. ★</p>
+<p>You can show your support by starring the original project. ★</p>
 <a href="https://github.com/arifszn/gitprofile/stargazers">
   <img src="https://img.shields.io/github/stars/arifszn/gitprofile?style=social" alt="Github Star">
 </a>
