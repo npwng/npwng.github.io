@@ -22,7 +22,7 @@ import {
 import { FaSquareThreads } from 'react-icons/fa6';
 import { MdLocationOn } from 'react-icons/md';
 import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
-import { SiResearchgate, SiTwitter, SiUdemy } from 'react-icons/si';
+// import { SiResearchgate, SiTwitter, SiUdemy } from 'react-icons/si';
 import { Profile } from '../../interfaces/profile';
 import {
   SanitizedGithub,
@@ -202,7 +202,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 value={github.username}
                 link={`https://github.com/${github.username}`}
               />
-              {social?.researchGate && (
+              {/* {social?.researchGate && (
                 <ListItem
                   icon={<SiResearchgate />}
                   title="ResearchGate:"
@@ -217,7 +217,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   value={social.twitter}
                   link={`https://twitter.com/${social.twitter}`}
                 />
-              )}
+              )} */}
               {social?.mastodon && (
                 <ListItem
                   icon={<FaMastodon />}
@@ -290,14 +290,14 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   link={`https://www.youtube.com/@${social.youtube}`}
                 />
               )}
-              {social?.udemy && (
+              {/* {social?.udemy && (
                 <ListItem
                   icon={<SiUdemy />}
                   title="Udemy:"
                   value={social.udemy}
                   link={`https://www.udemy.com/user/${social.udemy}`}
                 />
-              )}
+              )} */}
               {social?.medium && (
                 <ListItem
                   icon={<AiFillMediumSquare />}

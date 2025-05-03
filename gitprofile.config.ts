@@ -72,7 +72,7 @@ const CONFIG = {
     imageURL: '',
   },
   social: {
-    linkedin: '',
+    linkedin: 'nicholas-probst-wong-b63a44257',
     twitter: '',
     mastodon: '',
     researchGate: '',
@@ -110,8 +110,8 @@ const CONFIG = {
     {
       company: 'Elko Engineering Garage',
       position: 'Applications Intern',
-      from: 'May 2023',
-      to: 'Present',
+      from: 'May 2024',
+      to: 'April 2025',
       companyLink: 'https://confluence.garage.ualberta.ca/',
     },
     {
